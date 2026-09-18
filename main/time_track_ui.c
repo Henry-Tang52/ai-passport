@@ -161,8 +161,9 @@ void time_track_ui_refresh(const time_track_state_t *state, int battery_soc)
     if (battery_soc < 0) {
         lv_label_set_text(s_battery, "");
     } else {
-        char soc_text[8];
-        snprintf(soc_text, sizeof(soc_text), "%d%%", battery_soc);
+        char soc_text[16];
+        const int soc = battery_soc > 100 ? 100 : battery_soc;
+        snprintf(soc_text, sizeof(soc_text), "%d%%", soc);
         lv_label_set_text(s_battery, soc_text);
         lv_obj_set_style_text_color(
             s_battery,
@@ -187,14 +188,14 @@ void time_track_ui_refresh(const time_track_state_t *state, int battery_soc)
         lv_color_hex(state->session.running ? TT_TEAL : TT_MUTED),
         LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    char elapsed[16];
+    char elapsed[20];
     time_track_format_hms(time_track_elapsed(state), elapsed, sizeof(elapsed));
     lv_label_set_text(s_timer_elapsed, elapsed);
 
     uint32_t values[TIME_TRACK_LABEL_COUNT];
     time_track_view_totals(state, state->day_view, values);
     const uint32_t total = time_track_total(values);
-    char hm[16];
+    char hm[24];
     time_track_format_hm(total, hm, sizeof(hm));
     lv_label_set_text_fmt(
         s_today_header, "%s%s",
