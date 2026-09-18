@@ -43,12 +43,13 @@
 ./tools/validate.sh --firmware
 ```
 
-界面 16px 字库为 `assets/fonts/time_track_font_16.c`。改动
-`main/time_track_text.h` 后执行 `python3 tools/gen_time_track_font.py` 重新生成。
+界面字库为 `assets/fonts/time_track_font_{12,16,20}.c`（标题 / 正文 / 日合计）。
+计时数字使用 Montserrat 32。改动 `main/time_track_text.h` 后执行
+`python3 tools/gen_time_track_font.py` 重新生成。
 
 ## 源码位置
 
 - `main/time_track_model.c`：可在主机测试的计时、日期与按键逻辑
 - `main/time_track_store.c`：NVS 读写
-- `main/time_track_ui.c`：深色 + 青绿界面，字号 16
+- `main/time_track_ui.c`：深色 + 青绿界面，12 / 16 / 20 / 32 字号层次
 - `main/main.c`：BSP 启动与按键任务

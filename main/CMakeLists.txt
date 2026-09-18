@@ -8,5 +8,7 @@ idf_component_register(
 )
 
 target_sources(${COMPONENT_LIB} PRIVATE
+    "${CMAKE_CURRENT_LIST_DIR}/../assets/fonts/time_track_font_12.c"
     "${CMAKE_CURRENT_LIST_DIR}/../assets/fonts/time_track_font_16.c"
+    "${CMAKE_CURRENT_LIST_DIR}/../assets/fonts/time_track_font_20.c"
 )

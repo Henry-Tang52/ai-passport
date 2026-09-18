@@ -1,6 +1,7 @@
 #pragma once
 
-/* Fixed Simplified Chinese UI inventory. Keep in sync with tools/gen_time_track_font.sh. */
+/* Fixed Simplified Chinese UI inventory. Keep in sync with tools/gen_time_track_font.py.
+ * 12px covers the title, 16px covers the full set, 20px covers the day-total line. */
 
 #define TIME_TRACK_TEXT_TITLE "用时记账"
 

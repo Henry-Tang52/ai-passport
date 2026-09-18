@@ -50,12 +50,13 @@ with an ESP-IDF 5.5.3 firmware build:
 ./tools/validate.sh --firmware
 ```
 
-The 16px UI font is `assets/fonts/time_track_font_16.c`. Regenerate it with
+UI fonts live under `assets/fonts/time_track_font_{12,16,20}.c` (title / body /
+day total). Timer digits use Montserrat 32. Regenerate subsets with
 `python3 tools/gen_time_track_font.py` after changing `main/time_track_text.h`.
 
 ## Source layout
 
 - `main/time_track_model.c` — host-tested timer, day, and key logic
 - `main/time_track_store.c` — NVS load/save
-- `main/time_track_ui.c` — dark / teal screens at font size 16
+- `main/time_track_ui.c` — dark / teal screens with a 12 / 16 / 20 / 32 hierarchy
 - `main/main.c` — BSP bring-up and input task

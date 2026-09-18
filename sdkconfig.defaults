@@ -23,7 +23,8 @@ CONFIG_LV_TXT_ENC_UTF8=y
 CONFIG_LV_USE_FONT_PLACEHOLDER=y
 CONFIG_LV_FONT_MONTSERRAT_14=y
 CONFIG_LV_FONT_MONTSERRAT_20=y
-# Custom timer/today screens plus 16px CJK labels need a slightly larger pool.
+CONFIG_LV_FONT_MONTSERRAT_32=y
+# Custom timer/today screens plus 12/16/20 CJK labels need a slightly larger pool.
 CONFIG_LV_MEM_SIZE_KILOBYTES=32
 
 # --- 系统 ---
