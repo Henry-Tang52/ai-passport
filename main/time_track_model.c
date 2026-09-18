@@ -235,9 +235,9 @@ void time_track_format_hms(uint32_t seconds, char *buf, size_t buf_size)
     if (!buf || buf_size == 0) {
         return;
     }
-    const uint32_t hours = seconds / 3600u;
-    const uint32_t minutes = (seconds % 3600u) / 60u;
-    const uint32_t secs = seconds % 60u;
+    const unsigned hours = (unsigned)(seconds / 3600u);
+    const unsigned minutes = (unsigned)((seconds % 3600u) / 60u);
+    const unsigned secs = (unsigned)(seconds % 60u);
     snprintf(buf, buf_size, "%02u:%02u:%02u", hours, minutes, secs);
 }
 
@@ -246,7 +246,9 @@ void time_track_format_hm(uint32_t seconds, char *buf, size_t buf_size)
     if (!buf || buf_size == 0) {
         return;
     }
-    snprintf(buf, buf_size, "%uh %um", seconds / 3600u, (seconds % 3600u) / 60u);
+    snprintf(buf, buf_size, "%uh %um",
+             (unsigned)(seconds / 3600u),
+             (unsigned)((seconds % 3600u) / 60u));
 }
 
 size_t time_track_export(const time_track_state_t *state, uint8_t *buf, size_t buf_size)
