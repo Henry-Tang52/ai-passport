@@ -32,6 +32,10 @@ run_static_checks() {
         tests/test_demo_navigation.c main/demo_navigation.c \
         -o "${test_dir}/test_demo_navigation"
     "${test_dir}/test_demo_navigation"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_time_track_model.c main/time_track_model.c \
+        -o "${test_dir}/test_time_track_model"
+    "${test_dir}/test_time_track_model"
     "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Icomponents/bsp/src \
         tests/test_bsp_display_rounding.c components/bsp/src/bsp_display_rounding.c \
         -o "${test_dir}/test_bsp_display_rounding"
@@ -61,6 +65,7 @@ run_static_checks() {
             -o "${test_dir}/test_demo_${demo}_runtime"
         "${test_dir}/test_demo_${demo}_runtime"
     done
+    PYTHONDONTWRITEBYTECODE=1 python3 tests/test_time_track_font.py
     PYTHONDONTWRITEBYTECODE=1 python3 tests/test_deep_sleep_contract.py
     PYTHONDONTWRITEBYTECODE=1 python3 tests/test_check_repo.py
     PYTHONDONTWRITEBYTECODE=1 python3 tests/test_verify_firmware.py

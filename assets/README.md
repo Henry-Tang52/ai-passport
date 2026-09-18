@@ -17,6 +17,10 @@ Store reusable font files and generated font sources in `fonts/`.
 - Check Flash and internal-RAM impact before adding a font; the ESP32-C3 has no PSRAM.
 - Do not commit fonts whose license does not permit redistribution.
 
+| File | Size / format | Use and source |
+| --- | --- | --- |
+| [`fonts/time_track_font_16.c`](fonts/time_track_font_16.c) | LVGL 9 bitmap, 16px, 4 bpp, uncompressed | Time Ledger UI font. ASCII `0x20-0x7E` comes from DejaVu Sans; the application CJK inventory comes from Droid Sans Fallback. Generated with `lv_font_conv` 1.5.3 by `python3 tools/gen_time_track_font.py` and compiled from `main/CMakeLists.txt`. DejaVu is Bitstream Vera derived; Droid Sans Fallback is Apache-2.0. Only the generated subset is committed. |
+
 ## Images
 
 Store reusable source images and generated display assets in `images/`.

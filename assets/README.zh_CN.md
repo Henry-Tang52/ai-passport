@@ -15,6 +15,10 @@
 - 添加字库前评估 Flash 与内部 RAM 影响；ESP32-C3 无 PSRAM。
 - 不提交许可不允许分发的字库。
 
+| 文件 | 尺寸 / 格式 | 用途与来源 |
+| --- | --- | --- |
+| [`fonts/time_track_font_16.c`](fonts/time_track_font_16.c) | LVGL 9 点阵，16px，4 bpp，未压缩 | 「用时记账」界面字库。ASCII `0x20-0x7E` 来自 DejaVu Sans；应用中文集合来自 Droid Sans Fallback。使用 `lv_font_conv` 1.5.3，由 `python3 tools/gen_time_track_font.py` 生成，并在 `main/CMakeLists.txt` 中编译。DejaVu 源自 Bitstream Vera；Droid Sans Fallback 为 Apache-2.0。仓库只提交生成后的子集。 |
+
 ## 图片（images）
 
 可复用的源图与生成的显示资产放在 `images/`。
